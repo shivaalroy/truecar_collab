@@ -36,7 +36,6 @@ class collapser():
             if entry[0] != '':
                 count += 1
                 outputtxt.write('\t'.join(entry)+'\n')
-                # print "\t".join(entry)
 
     @staticmethod
     def getAvgTime(times):
