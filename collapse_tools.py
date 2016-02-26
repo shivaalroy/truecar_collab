@@ -1,6 +1,16 @@
 """
 Tool for preprocessing clickstream data into user sessions for classication algorithms.
+
+Columns of sessions are:
+member_id
+first_click_time
+zip_code
+num_visits
+num_clicks(number of rows)
+mean_click_time(midpoint)
+last_click_time
 """
+
 
 import csv
 import time
@@ -59,7 +69,6 @@ class collapser():
                 if len(session) > 1:
                     collapser.finalizeSession(session, times, num_clicks)
                     outputtxt.write('\t'.join(session)+'\n')
-                    # print '\t'.join(session)
                 session = [entry[0], entry[1], entry[2], entry[3]]
                 times = []
                 num_clicks = 0
