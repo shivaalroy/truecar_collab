@@ -23,6 +23,13 @@ def main():
         print_help()
         exit()
     if 'member_clicks' in argv:
-        collapser.get_member_clicks('clickstream/click_20150730.tsv', 'output/some_members.txt')
+        clickstreamfile = 'clickstream/click_20150730.tsv'
+        temp_members_clicks = 'output/member_clicks.txt'
+        outputfile = 'output/members.txt'
+        CLICK_COUNT = 0
+        print "Finding members..."
+        collapser.get_member_clicks(clickstreamfile,temp_members_clicks,CLICK_COUNT)
+        print "Collapsing sessions..."
+        collapser.collapse_member_clicks(temp_members_clicks,outputfile)
 
 if __name__ == '__main__': main()
